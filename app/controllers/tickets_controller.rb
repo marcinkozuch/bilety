@@ -1,4 +1,6 @@
 class TicketsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :set_ticket, only: [:show, :edit, :update, :destroy]
 
   # GET /tickets
@@ -70,5 +72,10 @@ class TicketsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def ticket_params
       params.require(:ticket).permit(:name, :seat_id_seq, :address, :price, :email_address)
+    end
+
+    def correct_user
+      @ticket = current_user.tickets.find_by(id: params[:id])
+      redirect_to tickets_path, notice: "Nie jesteś uprawniony do edycji tego biletu" if @ticket.nil?
     end
 end

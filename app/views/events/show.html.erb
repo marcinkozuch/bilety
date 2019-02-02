@@ -19,4 +19,6 @@
     <%= @event.event_date %>
   </h6>
 
+  <%= render "new_ticket", ticket: Ticket.new( :event_id=>@event.id) %>
+
 </div>
