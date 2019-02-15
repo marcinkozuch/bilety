@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <link rel="stylesheet" type="text/css" href="style.css">
 
 <div style="float: left">
@@ -15,4 +16,18 @@
 		<li><%= link_to event.artist, event %> (id:<%= event.id %>)</li>
 	<% end %>
 </ul>
+=======
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <h1>Kup bilet</h1>
+      <br>
+      <h3 class="display-2">Lista dostępnych wydarzeń</h3>
+      <%= render "events_list",  events: Event.all %>
+      <br>
+      <h3 class="display-2">Uzupełnij formularz</h3>
+      <%= render 'form', ticket: @ticket %>
+    </div>
+  </div>
+>>>>>>> ea9e59b3c23db0537406462d78b636206744c964
 </div>

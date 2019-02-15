@@ -39,10 +39,16 @@ class EventsController < ApplicationController
 			
     end
 
+<<<<<<< HEAD
     private
 		def check_logged_in
 					authenticate_or_request_with_http_basic("Ads") do |username, password|
 								username == "admin" && password == "1234"
+=======
+		def check_logged_in
+					authenticate_or_request_with_http_basic("Ads") do |username, password|
+								username == "admin" && password == "admin"
+>>>>>>> ea9e59b3c23db0537406462d78b636206744c964
 					end
 		end
 

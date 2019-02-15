@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <link rel="stylesheet" type="text/css" href="style.css">
 <h1>Editing Ticket</h1>
 
@@ -14,3 +15,19 @@
 		<br>
 	<% end %>
 </ul>
+=======
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <h1>Edycja biletu</h1>
+      <br>
+      <h3 class="display-2">Dostępne wydarzenia</h3>
+      <%= render "events_list",  events: Event.all %>
+      <br>
+      <h3 class="display-2">Wypełnij formularz</h3>
+      <%= render 'form', ticket: @ticket %>
+
+    </div>
+  </div>
+</div>
+>>>>>>> ea9e59b3c23db0537406462d78b636206744c964

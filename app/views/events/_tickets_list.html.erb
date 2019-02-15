@@ -1,10 +1,14 @@
+<<<<<<< HEAD
 <link rel="stylesheet" type="text/css" href="style.css">
 <p id="notice"><%= notice %></p>
+=======
+<br><br>
+<h3 class="display-2">Wykupione bilety</h3>
+>>>>>>> ea9e59b3c23db0537406462d78b636206744c964
 
-<h1>Tickets</h1>
-
-<table>
+<table class="table">
   <thead>
+<<<<<<< HEAD
     <tr>
       <th>Name</th>
       <th>Seat id seq</th>
@@ -29,5 +33,28 @@
 				<td><%= ticket.event_id %></td>
       </tr>
     <% end %>
+=======
+  <tr>
+    <th>Dane</th>
+    <th>ID miejsca</th>
+    <th>Adres</th>
+    <th>Cena</th>
+    <th>Email</th>
+    <th>Telefon</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% tickets.each do |tickett| %>
+    <tr>
+      <td><%= tickett.name %></td>
+      <td><%= tickett.seat_id_seq %></td>
+      <td><%= tickett.address %></td>
+      <td><%= tickett.price %></td>
+      <td><%= tickett.email %></td>
+      <td><%= tickett.phone %></td>
+    </tr>
+  <% end %>
+>>>>>>> ea9e59b3c23db0537406462d78b636206744c964
   </tbody>
 </table>

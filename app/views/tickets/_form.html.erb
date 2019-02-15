@@ -13,6 +13,7 @@
   <% end %>
 
   <div class="field">
+<<<<<<< HEAD
     <%= form.label :name %>
     <%= form.text_field :name, placeholder: "Musi zawierać tylko litery..." %>
   </div>
@@ -25,14 +26,29 @@
   <div class="field">
     <%= form.label :address %>
     <%= form.text_area :address, placeholder: "Dłuższy niż 5 znaków..." %>
+=======
+    <%= form.label :"ID wydarzenia" %>
+    <%= form.text_field :event_id, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price %>
+    <%= form.label :"Dane osobowe" %>
+    <%= form.text_field :name, class: "form-control" %>
   </div>
 
   <div class="field">
+    <%= form.label :"ID miejsca" %>
+    <%= form.text_field :seat_id_seq, class: "form-control" %>
+>>>>>>> ea9e59b3c23db0537406462d78b636206744c964
+  </div>
+
+  <div class="field">
+    <%= form.label :adres %>
+    <%= form.text_area :address, class: "form-control" %>
+  </div>
+
+  <div class="field">
+<<<<<<< HEAD
     <%= form.label :email_address %>
     <%= form.text_field :email_address, placeholder: "Musi zawierać @..." %>
   </div>
@@ -53,5 +69,24 @@
 
   <div class="actions">
     <%= form.submit %>
+=======
+    <%= form.label :cena %>
+    <%= form.text_field :price, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :telefon %>
+    <%= form.text_field :phone, class: "form-control" %>
+  </div>
+
+  <div class="actions row">
+    <%= form.submit "zakup bilet", class: "btn btn-lg btn-primary event-buttons" %>
+    <%= link_to 'powrót do listy', tickets_path, class: "btn btn-lg btn-primary event-buttons" %>
+>>>>>>> ea9e59b3c23db0537406462d78b636206744c964
   </div>
 <% end %>
