@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="style.css">
 <%= form_with(model: ticket, local: true) do |form| %>
   <% if ticket.errors.any? %>
     <div id="error_explanation">
@@ -12,42 +13,45 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :"ID wydarzenia" %>
-    <%= form.text_field :event_id, class: "form-control" %>
+    <%= form.label :name %>
+    <%= form.text_field :name, placeholder: "Musi zawierać tylko litery..." %>
   </div>
 
   <div class="field">
-    <%= form.label :"Dane osobowe" %>
-    <%= form.text_field :name, class: "form-control" %>
+    <%= form.label :seat_id_seq %>
+    <%= form.text_field :seat_id_seq, placeholder: "Sekwencja 3 znaków..." %>
   </div>
 
   <div class="field">
-    <%= form.label :"ID miejsca" %>
-    <%= form.text_field :seat_id_seq, class: "form-control" %>
+    <%= form.label :address %>
+    <%= form.text_area :address, placeholder: "Dłuższy niż 5 znaków..." %>
   </div>
 
   <div class="field">
-    <%= form.label :adres %>
-    <%= form.text_area :address, class: "form-control" %>
+    <%= form.label :price %>
+    <%= form.text_field :price %>
   </div>
 
   <div class="field">
-    <%= form.label :cena %>
-    <%= form.text_field :price, class: "form-control" %>
+    <%= form.label :email_address %>
+    <%= form.text_field :email_address, placeholder: "Musi zawierać @..." %>
   </div>
 
   <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email, class: "form-control" %>
+    <%= form.label :phone %>
+    <%= form.text_field :phone, placeholder: "Dokładnie 9 znaków..." %>
   </div>
 
-  <div class="field">
-    <%= form.label :telefon %>
-    <%= form.text_field :phone, class: "form-control" %>
+  <div class="field">	
+	 <%= form.label :event_id %>
+   <%= form.text_field :event_id, placeholder: "Z puli wydarzeń..." %>
   </div>
 
-  <div class="actions row">
-    <%= form.submit "zakup bilet", class: "btn btn-lg btn-primary event-buttons" %>
-    <%= link_to 'powrót do listy', tickets_path, class: "btn btn-lg btn-primary event-buttons" %>
+<div class="field">
+   <%= form.hidden_field :user_id, :value => current_user.id%>
+</div>
+
+  <div class="actions">
+    <%= form.submit %>
   </div>
 <% end %>

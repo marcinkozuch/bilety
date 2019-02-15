@@ -1,4 +1,3 @@
-require 'date'
 class Event < ApplicationRecord
     validates :artist, :presence => true
     validates :description, :presence => true

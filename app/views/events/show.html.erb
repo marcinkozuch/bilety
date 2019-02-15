@@ -1,72 +1,46 @@
-<div class="jumbotron">
-  <div class="container">
-    <div class="row">
-      <h1 class="display-1"> Wydarzenie </h1>
+<link rel="stylesheet" type="text/css" href="style.css">
+<p id="notice"><%= notice %></p>
 
-      <br>
-      <p id="komunikat"><%= flash[:komunikat] %></p>
-
-      <h3 class="display-2">Szczegóły</h3>
-
-      <div class="col-xs-12 content">
-        <div class="row">
-<!--          <div class="col-xs-0 col-sm-2 col-md-3"></div>-->
-          <div class="col-xs-12 col-sm-8 col-md-6">
-            <div class="row info-row">
-              <div class="col-xs-6"><strong>Artysta:</strong></div>
-              <div class="col-xs-6 text-right"><%= @event.artist %></div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-<!--          <div class="col-xs-0 col-sm-2 col-md-3"></div>-->
-          <div class="col-xs-12 col-sm-8 col-md-6">
-            <div class="row info-row">
-              <div class="col-xs-6"><strong>Opis:</strong></div>
-              <div class="col-xs-6 text-right"><%= @event.description %></div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-<!--          <div class="col-xs-0 col-sm-2 col-md-3"></div>-->
-          <div class="col-xs-12 col-sm-8 col-md-6">
-            <div class="row info-row">
-              <div class="col-xs-6"><strong>Minimalna cena:</strong></div>
-              <div class="col-xs-6 text-right"><%= @event.price_low %></div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-<!--          <div class="col-xs-0 col-sm-2 col-md-3"></div>-->
-          <div class="col-xs-12 col-sm-8 col-md-6">
-            <div class="row info-row">
-              <div class="col-xs-6"><strong>Maksymalna cena:</strong></div>
-              <div class="col-xs-6 text-right"><%= @event.price_high %></div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-<!--          <div class="col-xs-0 col-sm-2 col-md-3"></div>-->
-          <div class="col-xs-12 col-sm-8 col-md-6">
-            <div class="row info-row">
-              <div class="col-xs-6"><strong>Data:</strong></div>
-              <div class="col-xs-6 text-right"><%= @event.event_date %></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <br>
-
-      <br>
-      <%= render "tickets_list",  tickets: @event.tickets %>
-      <br>
-      <div class="col-xs-12 col-sm-8 col-md-6">
-        <% if user_signed_in? %>
-          <%= render "new_ticket",  ticket: Ticket.new( :event_id => @event.id) %>
-        <% end %>
-      </div>
-
-    </div>
-  </div>
+<div style="float: left; margin-bottom: 40px">
+<%= render "new_ticket", ticket: Ticket.new(:event_id => @event.id) %>
 </div>
+
+<div style="float: left; margin-left: 30px">
+<h1>Event details</h1>
+
+<p>
+  <strong>Artist:</strong>
+  <%= @event.artist %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @event.description %>
+</p>
+
+<p>
+  <strong>Price_low:</strong>
+  <%= @event.price_low %>
+</p>
+
+<p>
+  <strong>Price_high:</strong>
+  <%= @event.price_high %>
+</p>
+
+<p>
+  <strong>Event date:</strong>
+  <%= @event.event_date %>
+</p>
+
+<p>
+  <strong>Event id:</strong>
+  <%= @event.id %>
+</p>
+</div>
+
+<div style="clear: both">
+<%= render "tickets_list", tickets: Ticket.where(event_id: @event.id) %>
+</div>
+<br>
+<%= link_to 'Back to events', events_path %>

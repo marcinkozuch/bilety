@@ -1,28 +1,33 @@
-<br><br>
-<h3 class="display-2">Wykupione bilety</h3>
+<link rel="stylesheet" type="text/css" href="style.css">
+<p id="notice"><%= notice %></p>
 
-<table class="table">
+<h1>Tickets</h1>
+
+<table>
   <thead>
-  <tr>
-    <th>Dane</th>
-    <th>ID miejsca</th>
-    <th>Adres</th>
-    <th>Cena</th>
-    <th>Email</th>
-    <th>Telefon</th>
-  </tr>
+    <tr>
+      <th>Name</th>
+      <th>Seat id seq</th>
+      <th>Address</th>
+      <th>Price</th>
+      <th>Email address</th>
+			<th>Phone</th>
+			<th>Event</th>
+      <th colspan="3"></th>
+    </tr>
   </thead>
 
-  <tbody>
-  <% tickets.each do |tickett| %>
-    <tr>
-      <td><%= tickett.name %></td>
-      <td><%= tickett.seat_id_seq %></td>
-      <td><%= tickett.address %></td>
-      <td><%= tickett.price %></td>
-      <td><%= tickett.email %></td>
-      <td><%= tickett.phone %></td>
-    </tr>
-  <% end %>
+<tbody>
+    <% Ticket.where(event_id: @event.id).each do |ticket| %>
+      <tr>
+        <td><%= ticket.name %></td>
+        <td><%= ticket.seat_id_seq %></td>
+        <td><%= ticket.address %></td>
+        <td><%= ticket.price %></td>
+        <td><%= ticket.email_address %></td>
+				<td><%= ticket.phone %></td>
+				<td><%= ticket.event_id %></td>
+      </tr>
+    <% end %>
   </tbody>
 </table>

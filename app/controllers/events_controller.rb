@@ -5,10 +5,12 @@ class EventsController < ApplicationController
   
   def index
     @events = Event.all
+    @tickets = Ticket.all
   end
 
   def new
     @event = Event.new
+    @ticket = Ticket.new
   end
 
   def create
@@ -37,9 +39,10 @@ class EventsController < ApplicationController
 			
     end
 
+    private
 		def check_logged_in
 					authenticate_or_request_with_http_basic("Ads") do |username, password|
-								username == "admin" && password == "admin"
+								username == "admin" && password == "1234"
 					end
 		end
 

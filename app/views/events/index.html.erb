@@ -1,29 +1,10 @@
-<div class="jumbotron">
-<div class="container">
-  <div class="row event-list">
-    <h1 class="display-1"> Wszystkie wydarzenia</h1>
-    <br><br>
-    <ul class="list-group event-list list-container">
-      <li class="list-group-item list-group-item-info event-list-title" id="event-list-title-id">
-        <div class="col-12">
-          <div class="row">
-            <span class="col-xs-7 col-sm-9 ">Artysta</span>
-            <span class="col-xs-5 col-sm-3 text-right title_date">Termin</span>
-          </div>
-        </div>
-      </li>
-      <% for event in @events %>
-        <li class="list-group-item list-group-item-info">
-          <div class="col-12">
-            <%= link_to event, class: "row" do %>
-              <%= content_tag :div, event.artist, class: "col-xs-7 col-sm-9" %>
-              <%= content_tag :div, event.event_date, class: "col-xs-5 col-sm-3 text-right" %>
-            <% end %>
-          </div>
-        </li>
-      <% end %>
-    </ul>
-    <%= link_to 'nowe wydarzenie', new_event_path, class: "btn btn-lg btn-primary button" %>
-  </div>
-</div>
-</div>
+<link rel="stylesheet" type="text/css" href="pstyle.css">
+<h1> Wszystkie wydarzenia</h1>
+<ul class="a", style="list-style-type: circle; font-variant: small-caps; font-size: 140%">
+<% for event in @events %>
+<li><%= link_to event.artist, event %> (id:<%= event.id %>)</li>
+<% end %>
+</ul>
+<%= link_to 'Nowe ogłoszenie', new_event_path %>
+<br>
+<%= link_to 'Back to main page', "/" %>
