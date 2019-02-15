@@ -1,6 +1,54 @@
-<link rel="stylesheet" type="text/css" href="pstyle.css">
-<h1>New Ticket</h1>
+<h3 class="display-2">Kup bilet</h3>
+<%= form_with(model: ticket, local: true) do |form| %>
+  <% if ticket.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ticket.errors.count, "error") %> prohibited this ticket from being saved:</h2>
 
-<%= render 'tickets/form', ticket: Ticket.new(:event_id => @event.id) %>
+      <ul>
+        <% ticket.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
+  <div class="field">
+    <%#= form.label :id %>
+    <%= form.hidden_field :event_id, class: "form-control" %>
+  </div>
 
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :seat_id_seq %>
+    <%= form.text_field :seat_id_seq, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_area :address, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone %>
+    <%= form.text_field :phone, class: "form-control" %>
+  </div>
+
+  <div class="actions row">
+    <%= form.submit "zakup bilet", class: "btn btn-lg btn-primary  event-buttons" %>
+    <%= link_to 'powrót do listy', events_path, class: "btn btn-lg btn-primary button  event-buttons" %>
+  </div>
+<% end %>

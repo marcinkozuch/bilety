@@ -1,6 +1,14 @@
-<h1>Editing Ticket</h1>
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <h1>Edycja biletu</h1>
+      <br>
+      <h3 class="display-2">Dostępne wydarzenia</h3>
+      <%= render "events_list",  events: Event.all %>
+      <br>
+      <h3 class="display-2">Wypełnij formularz</h3>
+      <%= render 'form', ticket: @ticket %>
 
-<%= render 'form', ticket: @ticket %>
-
-<%= link_to 'Show', @ticket %> |
-<%= link_to 'Back', tickets_path %>
+    </div>
+  </div>
+</div>

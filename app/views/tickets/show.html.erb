@@ -1,29 +1,79 @@
-<p id="notice"><%= notice %></p>
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <h1>Szczegóły biletu</h1>
 
-<p>
-  <strong>Name:</strong>
-  <%= @ticket.name %>
-</p>
 
-<p>
-  <strong>Seat id seq:</strong>
-  <%= @ticket.seat_id_seq %>
-</p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @ticket.address %>
-</p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @ticket.price %>
-</p>
 
-<p>
-  <strong>Email address:</strong>
-  <%= @ticket.email_address %>
-</p>
+<!--      <h3 class="display-2">Szczegóły</h3>-->
 
-<%= link_to 'Edit', edit_ticket_path(@ticket) %> |
-<%= link_to 'Back', tickets_path %>
+      <p id="notice"><%= notice %></p>
+      <br>
+
+      <div class="col-xs-12 content">
+        <div class="row">
+          <!--          <div class="col-xs-0 col-sm-2 col-md-3"></div>-->
+          <div class="col-xs-12 col-sm-8 col-md-6">
+            <div class="row info-row">
+              <div class="col-xs-6"><strong>Dane osobowe:</strong></div>
+              <div class="col-xs-6 text-right"><%= @ticket.name %></div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <!--          <div class="col-xs-0 col-sm-2 col-md-3"></div>-->
+          <div class="col-xs-12 col-sm-8 col-md-6">
+            <div class="row info-row">
+              <div class="col-xs-6"><strong>ID miejsca:</strong></div>
+              <div class="col-xs-6 text-right"><%= @ticket.seat_id_seq %></div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <!--          <div class="col-xs-0 col-sm-2 col-md-3"></div>-->
+          <div class="col-xs-12 col-sm-8 col-md-6">
+            <div class="row info-row">
+              <div class="col-xs-6"><strong>Adres:</strong></div>
+              <div class="col-xs-6 text-right"><%= @ticket.address %></div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <!--          <div class="col-xs-0 col-sm-2 col-md-3"></div>-->
+          <div class="col-xs-12 col-sm-8 col-md-6">
+            <div class="row info-row">
+              <div class="col-xs-6"><strong>Cena:</strong></div>
+              <div class="col-xs-6 text-right"><%= @ticket.price %></div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <!--          <div class="col-xs-0 col-sm-2 col-md-3"></div>-->
+          <div class="col-xs-12 col-sm-8 col-md-6">
+            <div class="row info-row">
+              <div class="col-xs-6"><strong>Email:</strong></div>
+              <div class="col-xs-6 text-right"><%= @ticket.email %></div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <!--          <div class="col-xs-0 col-sm-2 col-md-3"></div>-->
+          <div class="col-xs-12 col-sm-8 col-md-6">
+            <div class="row info-row">
+              <div class="col-xs-6"><strong>Telefon:</strong></div>
+              <div class="col-xs-6 text-right"><%= @ticket.phone %></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br>
+      <%= link_to 'Back', tickets_path, class: "btn btn-lg btn-primary event-buttons" %>
+      <% if @ticket.user== current_user and user_signed_in? %>
+        <%= link_to 'Edit', edit_ticket_path(@ticket), class: "btn btn-lg btn-primary event-buttons" %>
+      <% end %>
+    </div>
+  </div>
+</div>

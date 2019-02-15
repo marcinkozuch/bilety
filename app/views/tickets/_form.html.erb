@@ -12,31 +12,42 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.label :"ID wydarzenia" %>
+    <%= form.text_field :event_id, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :seat_id_seq %>
-    <%= form.text_field :seat_id_seq %>
+    <%= form.label :"Dane osobowe" %>
+    <%= form.text_field :name, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :address %>
-    <%= form.text_area :address %>
+    <%= form.label :"ID miejsca" %>
+    <%= form.text_field :seat_id_seq, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price %>
+    <%= form.label :adres %>
+    <%= form.text_area :address, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :email_address %>
-    <%= form.text_field :email_address %>
+    <%= form.label :cena %>
+    <%= form.text_field :price, class: "form-control" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :telefon %>
+    <%= form.text_field :phone, class: "form-control" %>
+  </div>
+
+  <div class="actions row">
+    <%= form.submit "zakup bilet", class: "btn btn-lg btn-primary event-buttons" %>
+    <%= link_to 'powrót do listy', tickets_path, class: "btn btn-lg btn-primary event-buttons" %>
   </div>
 <% end %>

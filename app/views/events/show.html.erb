@@ -1,24 +1,72 @@
-<div class="col-md-10">
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <h1 class="display-1"> Wydarzenie </h1>
 
- <h6>
-    <%= @event.artist %>
-  </h6>
+      <br>
+      <p id="komunikat"><%= flash[:komunikat] %></p>
 
-  <h6>
-    <%= @event.description %>
-  </h6>
+      <h3 class="display-2">Szczegóły</h3>
 
-  <hr>
+      <div class="col-xs-12 content">
+        <div class="row">
+<!--          <div class="col-xs-0 col-sm-2 col-md-3"></div>-->
+          <div class="col-xs-12 col-sm-8 col-md-6">
+            <div class="row info-row">
+              <div class="col-xs-6"><strong>Artysta:</strong></div>
+              <div class="col-xs-6 text-right"><%= @event.artist %></div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+<!--          <div class="col-xs-0 col-sm-2 col-md-3"></div>-->
+          <div class="col-xs-12 col-sm-8 col-md-6">
+            <div class="row info-row">
+              <div class="col-xs-6"><strong>Opis:</strong></div>
+              <div class="col-xs-6 text-right"><%= @event.description %></div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+<!--          <div class="col-xs-0 col-sm-2 col-md-3"></div>-->
+          <div class="col-xs-12 col-sm-8 col-md-6">
+            <div class="row info-row">
+              <div class="col-xs-6"><strong>Minimalna cena:</strong></div>
+              <div class="col-xs-6 text-right"><%= @event.price_low %></div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+<!--          <div class="col-xs-0 col-sm-2 col-md-3"></div>-->
+          <div class="col-xs-12 col-sm-8 col-md-6">
+            <div class="row info-row">
+              <div class="col-xs-6"><strong>Maksymalna cena:</strong></div>
+              <div class="col-xs-6 text-right"><%= @event.price_high %></div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+<!--          <div class="col-xs-0 col-sm-2 col-md-3"></div>-->
+          <div class="col-xs-12 col-sm-8 col-md-6">
+            <div class="row info-row">
+              <div class="col-xs-6"><strong>Data:</strong></div>
+              <div class="col-xs-6 text-right"><%= @event.event_date %></div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <h6>
-    <strong>Bilety od </strong> <%= @event.price_low %> <strong> do </strong>     <%= @event.price_high %>
-  </h6>
+      <br>
 
-  <h6>
-    <strong>Data:</strong>
-    <%= @event.event_date %>
-  </h6>
+      <br>
+      <%= render "tickets_list",  tickets: @event.tickets %>
+      <br>
+      <div class="col-xs-12 col-sm-8 col-md-6">
+        <% if user_signed_in? %>
+          <%= render "new_ticket",  ticket: Ticket.new( :event_id => @event.id) %>
+        <% end %>
+      </div>
 
-  <%= render "new_ticket", ticket: Ticket.new( :event_id=>@event.id) %>
-
+    </div>
+  </div>
 </div>
